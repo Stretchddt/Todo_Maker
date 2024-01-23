@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>In this section you can see your completed todos</h1>
+    {% for todo in todos %}
+        <span style="{% if todo.completed == True %}
+            text-decoration-line: line-through
+        {% endif %}">
+            <a href="{% url 'item' todo.id  %}">
+                <h3>{{ todo.description }}</h3>
+            </a>
+        </span>
+        <a href="{% url "delete" todo.id %}">
+            <input type="button" value="Delete">
+        </a>
+        <hr>
+    {% endfor %}
+{% endblock content %}

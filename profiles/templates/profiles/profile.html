@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Welcome to your profile</h1>
+
+    <div class='card'>
+        <div class="card">
+            <h3>Username - {{ request.user }}</h3>
+            <h3>Email - {{ request.user.email }}</h3>
+            <hr>
+            <a href="{% url "logout" %}">Logout</a>
+        </div>
+    </div>
+{% endblock content %}
